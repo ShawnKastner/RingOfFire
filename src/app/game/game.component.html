@@ -11,10 +11,10 @@
  
 
         <!-- Stack for played Cards -->
-        <img *ngFor="let card of game.playedCard" class="playedCard" src="/assets/img/cards/{{ card }}.png">
+        <img *ngFor="let card of game.playedCards" class="playedCard" src="/assets/img/cards/{{ card }}.png">
 
         <!-- Current card (Animation) -->
-        <img (click)="takeCard()" *ngIf="pickCardAnimation" class="pickCard" style="right: 25px" src="/assets/img/cards/ {{ currentCard }} .png">
+        <img (click)="takeCard()" *ngIf="pickCardAnimation" class="pickCard" style="right: 25px" src="assets/img/cards/{{ currentCard }}.png">
 
     </div>
 
