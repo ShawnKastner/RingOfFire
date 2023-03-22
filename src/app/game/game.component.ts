@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
-import { addDoc, collection, collectionData, doc, docData, DocumentData, DocumentReference, Firestore, onSnapshot, setDoc } from '@angular/fire/firestore';
+import { addDoc, collection, collectionData, doc, docData, DocumentData, DocumentReference, Firestore, onSnapshot, setDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,13 +19,13 @@ export class GameComponent implements OnInit {
   docRef!: DocumentReference<DocumentData>;
   gameId!: string;
 
-  constructor(private route: ActivatedRoute,private firestore: Firestore, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.newGame();
     this.route.params.subscribe((params) => {
       this.gameId = params['id']
-  
+
       this.docRef = doc(collection(this.firestore, 'games'), params['id']);
       onSnapshot(this.docRef, (docSnap) => {
         console.log('game has been updated', docSnap.data());
@@ -50,12 +50,13 @@ export class GameComponent implements OnInit {
     if (!this.pickCardAnimation) {
       this.currentCard = this.game.stack.pop() || '';
       this.pickCardAnimation = true;
-
+      this.saveGame();
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
       setTimeout(() => {
         this.game.playedCards.push(this.currentCard);
         this.pickCardAnimation = false;
+        this.saveGame();
       }, 1000)
     }
   }
@@ -66,7 +67,14 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
         this.game.players.push(name);
+        this.saveGame();
       }
     });
+  }
+
+  saveGame() {
+    const docRef = doc(this.firestore, 'games', this.gameId)
+    const update = this.game.toJson()
+    updateDoc(docRef, update)
   }
 }
