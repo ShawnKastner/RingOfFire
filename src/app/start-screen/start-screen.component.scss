@@ -1,5 +1,5 @@
 .startScreen {
-    background-color: #404040;
+    background-color: #000;
     width: 100vw;
     height: 100vh;
     max-width: 100%;
@@ -9,8 +9,21 @@
 
     img {
         height: 100%;
-        width: 100vw;
-        object-fit: contain;
+    }
+}
+
+.gameNameContainer {
+    position: absolute;
+    top: 30px;
+    text-align: center;
+
+    h1 {
+        font-size: 4.4rem;
+        font-weight: 700;
+        color: #b70909;
+        text-transform: uppercase;
+        letter-spacing: 40px;
+        text-shadow: rgb(0, 0, 0) -4px 2px 7px;
     }
 }
 
@@ -22,13 +35,64 @@
     display: flex;
     justify-content: center;
 
-    img{
-        width: 40vw;
+    img {
+        width: 40vw !important;
         height: auto;
 
         &:hover {
             filter: brightness(1.25);
             cursor: pointer;
+        }
+    }
+}
+
+@media screen {
+    @media(max-width: 950px) {
+        .startScreen {
+            img {
+                width: 100vw;
+                object-fit: cover;
+            }
+        }
+
+        .gameNameContainer {
+            h1 {
+                font-size: 3.4rem;
+                letter-spacing: 32px;
+            }
+        }
+    }
+
+    @media(max-width: 720px) {
+        .gameNameContainer {
+            h1 {
+                font-size: 2.0rem;
+                letter-spacing: 24px;
+            }
+        }
+    }
+
+    @media(max-width: 485px) {
+        .gameNameContainer {
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    @media(max-width: 425px) {
+        .gameNameContainer {
+            h1 {
+                letter-spacing: 18px;
+            }
+        }
+
+        .startLabelBox {
+            bottom: 30px;
+
+            img {
+                width: 60vw !important;
+            }
         }
     }
 }
