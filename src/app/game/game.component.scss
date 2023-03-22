@@ -72,6 +72,12 @@
     right: 100px;
 }
 
+.customCard {
+    border-radius: 8px;
+    height: 187px;
+    object-fit: cover;
+}
+
 @media(max-width: 720px) {
     .pinBottom {
         bottom: 0;
