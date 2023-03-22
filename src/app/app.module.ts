@@ -18,6 +18,7 @@ import { GameInfoComponent } from './game-info/game-info.component';
 import { environment } from 'src/environment/environment';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     GameComponent,
     PlayerComponent,
     DialogAddPlayerComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    PlayerMobileComponent
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebase)),

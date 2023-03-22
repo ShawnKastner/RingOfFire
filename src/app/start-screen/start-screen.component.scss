@@ -46,53 +46,59 @@
     }
 }
 
-@media screen {
-    @media(max-width: 950px) {
-        .startScreen {
-            img {
-                width: 100vw;
-                object-fit: cover;
-            }
-        }
 
-        .gameNameContainer {
-            h1 {
-                font-size: 3.4rem;
-                letter-spacing: 32px;
-            }
+@media(max-width: 950px) {
+    .startScreen {
+        img {
+            width: 100vw;
+            object-fit: cover;
         }
     }
 
-    @media(max-width: 720px) {
-        .gameNameContainer {
-            h1 {
-                font-size: 2.0rem;
-                letter-spacing: 24px;
-            }
+    .gameNameContainer {
+        h1 {
+            font-size: 3.4rem;
+            letter-spacing: 32px;
+        }
+    }
+}
+
+@media(max-width: 720px) {
+    .gameNameContainer {
+        h1 {
+            font-size: 2.0rem;
+            letter-spacing: 24px;
+        }
+    }
+    .startLabelBox {
+        bottom: 30px;
+
+        img {
+            width: 300px !important;
+        }
+    }
+}
+
+@media(max-width: 485px) {
+    .gameNameContainer {
+        h1 {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media(max-width: 425px) {
+    .gameNameContainer {
+        h1 {
+            letter-spacing: 18px;
         }
     }
 
-    @media(max-width: 485px) {
-        .gameNameContainer {
-            h1 {
-                font-size: 1.4rem;
-            }
-        }
-    }
+    .startLabelBox {
+        bottom: 30px;
 
-    @media(max-width: 425px) {
-        .gameNameContainer {
-            h1 {
-                letter-spacing: 18px;
-            }
-        }
-
-        .startLabelBox {
-            bottom: 30px;
-
-            img {
-                width: 60vw !important;
-            }
+        img {
+            width: 400px;
         }
     }
 }
