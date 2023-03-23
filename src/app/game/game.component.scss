@@ -2,9 +2,9 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    background-image: url("/assets/img/board3.png");
+    background-image: url("/assets/img/boardBig.png");
     background-position: center;
-    background-size: contain;
+    background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-color: black;
     display: flex;
@@ -135,6 +135,13 @@ app-player-mobile {
     }
 }
 
+@media(max-width: 1200px) {
+    .playGround {
+        background-image: url('/assets/img/boardSmall.png');
+        background-size: cover;
+    }
+}
+
 @media(max-width: 720px) {
     .pinBottom {
         bottom: 0;
@@ -146,11 +153,6 @@ app-player-mobile {
     .addBtn {
         right: 15px;
         bottom: 15px;
-    }
-
-    .playGround {
-        background-size: cover;
-        width: 100%;
     }
 }
 
