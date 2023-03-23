@@ -79,12 +79,33 @@
     object-fit: cover;
 }
 
-app-player, app-player-mobile {
+app-player,
+app-player-mobile {
     cursor: pointer;
 
     &:hover {
         filter: brightness(1.1);
     }
+}
+
+.gameOverScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: black;
+
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+.preloadImage {
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+    z-index: -999;
 }
 
 @media(max-width: 720px) {
@@ -125,5 +146,12 @@ app-player, app-player-mobile {
 
     .customCard {
         height: 150px;
+    }
+
+    .gameOverScreen {
+        img {
+            border-radius: unset;
+            width: 100%;
+        }
     }
 }

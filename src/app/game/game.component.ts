@@ -17,6 +17,7 @@ export class GameComponent implements OnInit {
   gameInfo$!: Observable<any>;
   docRef!: DocumentReference<DocumentData>;
   gameId!: string;
+  gameOver = false;
 
   constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) { }
 
@@ -49,7 +50,9 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    if (!this.game.pickCardAnimation) {
+    if (this.game.stack.length == 0) {
+      this.gameOver = true;
+    } else if (!this.game.pickCardAnimation) {
       this.game.currentCard = this.game.stack.pop() || '';
       this.game.pickCardAnimation = true;
       this.game.currentPlayer++;
@@ -59,7 +62,7 @@ export class GameComponent implements OnInit {
         this.game.playedCards.push(this.game.currentCard);
         this.game.pickCardAnimation = false;
         this.saveGame();
-      }, 1000)
+      }, 1000);
     }
   }
 
@@ -68,8 +71,8 @@ export class GameComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
-        this.game.players.push(name); 
-        this.game.playerImages.push('profilePicture'); 
+        this.game.players.push(name);
+        this.game.playerImages.push('profilePicture');
         this.saveGame();
       }
     });

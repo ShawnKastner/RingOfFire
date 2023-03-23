@@ -13,6 +13,6 @@ throw new Error('Method not implemented.');
 
   constructor(public dialogRef: MatDialogRef<EditPlayerComponent>) {}
 
-  allProfilePictures = ['profilePicture', 'profilePictureFemale']
+  allProfilePictures = ['profilePicture', 'profilePictureFemale', 'dog','lion','monkey','spyCat','tiger','wolf','cow']
 
 }

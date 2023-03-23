@@ -5,30 +5,30 @@ import { Component, Input, OnChanges } from '@angular/core';
   templateUrl: './game-info.component.html',
   styleUrls: ['./game-info.component.scss']
 })
-export class GameInfoComponent implements OnChanges{
+export class GameInfoComponent implements OnChanges {
 
   cardAction = [
-    { title: 'Waterfall', description: 'Everyone has to start drinking at the same time. As soon as player 1 stops drinking, player 2 may stop drinking. Player 3 may stop as soon as player 2 stops drinking, and so on.' },
-    { title: 'You', description: 'You decide who drinks' },
-    { title: 'Me', description: 'Congrats! Drink a shot!' },
-    { title: 'Category', description: 'Come up with a category (e.g. Colors). Each player must enumerate one item from the category.' },
-    { title: 'Bust a jive', description: 'Player 1 makes a dance move. Player 2 repeats the dance move and adds a second one. ' },
-    { title: 'Chicks', description: 'All girls drink.' },
-    { title: 'Heaven', description: 'Put your hands up! The last player drinks!' },
-    { title: 'Mate', description: 'Pick a mate. Your mate must always drink when you drink and the other way around.' },
-    { title: 'Thumbmaster', description: 'Touch the tabletop with your thumb. The last player to touch the table must take a sip.' },
-    { title: 'Men', description: 'All men drink.' },
-    { title: 'Quizmaster', description: 'The person who draws a jack may make up a new rule of the game that applies until the end of the game. The rule may not override any others.' },
-    { title: 'Never have i ever...', description: 'Say something you nnever did. Everyone who did it has to drink.' },
-    { title: 'Rule', description: 'Make a rule. Everyone needs to drink when he breaks the rule.' },
+    { title: 'Waterfall', description: 'Alle müssen gleichzeitig mit dem Trinken beginnen. Sobald Spieler 1 aufhört zu trinken, darf Spieler 2 aufhören zu trinken. Spieler 3 darf aufhören, sobald Spieler 2 aufhört zu trinken, und so weiter.' },
+    { title: 'You', description: 'Du darfst eine Person bestimmen, die einen Schluck aus ihrem Getränk nimmt.' },
+    { title: 'Me', description: 'Du musst einen Schluck trinken.' },
+    { title: 'Chicks', description: 'Die Damen der Schöpfung müssen einen Schluck trinken.' },
+    { title: 'Thumbmaster', description: 'Berühre mit deinem Daumen die Tischplatte. Der Mitspieler der zuletzt den Tisch berührt, muss einen Schluck trinken.' },
+    { title: 'Men', description: 'Die Männer dürfen anstoßen und einen Schluck trinken.' },
+    { title: 'Heaven', description: 'Hände hoch! Der letzte Spieler muss trinken!' },
+    { title: 'Mate', description: 'Bestimme einen Mitspieler, der von nun an jedes Mal mit dir einen Schluck trinken muss, wenn du dazu aufgefordert wirst.' },
+    { title: 'Rhymes', description: 'Der Kartenzieher sagt ein Wort und jeder Mitspieler muss einen Reim zu diesem Wort finden.Wer es vermasselt, muss saufen.' },
+    { title: 'Category', description: 'Denk dir eine Kategorie aus (z. B. Farben). Jeder Spieler muss einen Gegenstand aus dieser Kategorie aufzählen.Wer nichts mehr weiß, muss trinken!' },
+    { title: 'Rules', description: 'Eine Regel aufstellen. Der Spieler, der die Karte gezogen hat, stellt eine neue Regel auf (z.B. man darf das Wort "Ja" nicht sagen oder man darf sein Getränk nicht abstellen) und jeder, der diese Regel zu irgendeinem Zeitpunkt während des restlichen Spiels bricht, muss trinken.' },
+    { title: 'Quizmaster', description: 'Du bist der Questionmaster, und wenn jemand eine von dir (dem Spieler, der die Karte gezogen hat) gestellte Frage beantwortet, muss er trinken. Dies gilt für JEDE Frage.' },
+    { title: 'King', description: 'Der Spieler darf ein Getränk seiner Wahl in den Kingscup gießen. Wird der vierte König gezogen, so muss der Spieler unverzüglich den Kingscup in der Mitte des Spiels leeren.' },
   ];
-
+  
   title = '';
   description = '';
   @Input() card!: string;
 
   ngOnChanges(): void {
-    if(this.card) {
+    if (this.card) {
       let cardNumber = +this.card.split('_')[1];
       this.title = this.cardAction[cardNumber - 1].title;
       this.description = this.cardAction[cardNumber - 1].description;
