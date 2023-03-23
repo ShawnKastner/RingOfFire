@@ -2,8 +2,9 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    background-image: url("/assets/img/brown_board.jpg");
+    background-image: url("/assets/img/board3.png");
     background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,5 +104,18 @@
 
     app-player-mobile {
         margin-left: 8px;
+    }
+}
+
+@media(max-width: 400px) {
+    .cardStack {
+
+        img {
+            width: 95px;
+        }
+    }
+
+    .customCard {
+        height: 150px;
     }
 }
