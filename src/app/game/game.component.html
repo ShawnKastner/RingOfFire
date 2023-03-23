@@ -1,13 +1,14 @@
-
-<app-player (click)="editPlayer(i)" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': 20 + (i * 65)}" [name]="player"
-    [playerActive]="i == game.currentPlayer" [image]="game.playerImages[i]" class="playerPosition hideMobile"></app-player>
+<app-player (click)="editPlayer(i)" *ngFor="let player of game.players; let i = index;"
+    [ngStyle]="{'top.px': 20 + (i * 65)}" [name]="player" [playerActive]="i == game.currentPlayer"
+    [image]="game.playerImages[i]" class="playerPosition hideMobile"></app-player>
 
 <div class="scrollContainer hideDesktop">
-    <app-player-mobile (click)="editPlayer(i)" class="hideDesktop" *ngFor="let player of game.players; let i = index;" [name]="player"
-        [playerActive]="i == game.currentPlayer" [image]="game.playerImages[i]"></app-player-mobile>
+    <app-player-mobile (click)="editPlayer(i)" class="hideDesktop" *ngFor="let player of game.players; let i = index;"
+        [name]="player" [playerActive]="i == game.currentPlayer" [image]="game.playerImages[i]"></app-player-mobile>
 </div>
 
 <div class="gameOverScreen" *ngIf="gameOver">
+    <h1>Game Over</h1>
     <img src="assets/img/gameover.png">
 </div>
 
@@ -16,8 +17,8 @@
         <!-- Card stack -->
         <img class="customCard" [ngStyle]="{'right.px': i * 5}" *ngFor="let c of [1, 2, 3]; let i = index;"
             src="assets/img/newCover.png">
-        <img (click)="takeCard()" class="topCard customCard" [class.pickCard]="game.pickCardAnimation" style="right: 25px"
-            src="assets/img/newCover.png">
+        <img (click)="takeCard()" class="topCard customCard" [class.pickCard]="game.pickCardAnimation"
+            style="right: 25px" src="assets/img/newCover.png">
 
 
         <!-- Stack for played Cards -->

@@ -3,8 +3,10 @@
     height: 100vh;
     max-width: 100%;
     background-image: url("/assets/img/board3.png");
-    background-size: cover;
     background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,8 +94,19 @@ app-player-mobile {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100%;
     background-color: black;
+    overflow: hidden;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #b70909;
+        text-transform: uppercase;
+        letter-spacing: 18px;
+        text-shadow: rgb(0, 0, 0) -4px 2px 7px;
+    }
 
     img {
         border-radius: 50%;
@@ -108,6 +121,20 @@ app-player-mobile {
     z-index: -999;
 }
 
+.scrollContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    app-player-mobile {
+        margin-left: 8px;
+    }
+}
+
 @media(max-width: 720px) {
     .pinBottom {
         bottom: 0;
@@ -120,19 +147,10 @@ app-player-mobile {
         right: 15px;
         bottom: 15px;
     }
-}
 
-.scrollContainer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    app-player-mobile {
-        margin-left: 8px;
+    .playGround {
+        background-size: cover;
+        width: 100%;
     }
 }
 
