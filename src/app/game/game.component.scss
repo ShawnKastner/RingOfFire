@@ -79,6 +79,14 @@
     object-fit: cover;
 }
 
+app-player, app-player-mobile {
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}
+
 @media(max-width: 720px) {
     .pinBottom {
         bottom: 0;
