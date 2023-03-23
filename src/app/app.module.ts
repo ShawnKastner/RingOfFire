@@ -20,6 +20,7 @@ import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { PleaseAddPlayerComponent } from './please-add-player/please-add-player.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditPlayerComponent } from './edit-player/edit-player.component';
     DialogAddPlayerComponent,
     GameInfoComponent,
     PlayerMobileComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    PleaseAddPlayerComponent
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebase)),

@@ -6,6 +6,7 @@ import { addDoc, collection, collectionData, doc, docData, DocumentData, Documen
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
+import { PleaseAddPlayerComponent } from '../please-add-player/please-add-player.component';
 
 @Component({
   selector: 'app-game',
@@ -28,7 +29,6 @@ export class GameComponent implements OnInit {
 
       this.docRef = doc(collection(this.firestore, 'games'), params['id']);
       onSnapshot(this.docRef, (docSnap) => {
-        console.log('game has been updated', docSnap.data());
       })
 
       this.gameInfo$ = docData(this.docRef);
@@ -52,7 +52,10 @@ export class GameComponent implements OnInit {
   takeCard() {
     if (this.game.stack.length == 0) {
       this.gameOver = true;
-    } else if (!this.game.pickCardAnimation) {
+    } if (this.game.players.length == 0) {
+      this.addPlayerDialog();
+    }
+    else if (!this.game.pickCardAnimation) {
       this.game.currentCard = this.game.stack.pop() || '';
       this.game.pickCardAnimation = true;
       this.game.currentPlayer++;
@@ -64,6 +67,10 @@ export class GameComponent implements OnInit {
         this.saveGame();
       }, 1000);
     }
+  }
+
+  addPlayerDialog() {
+    const dialogRef = this.dialog.open(PleaseAddPlayerComponent);
   }
 
   openDialog(): void {
